@@ -12,7 +12,7 @@ export default function App() {
     <div className={`${isDark && "dark"}`}>
       <div className="bg-Gray50 dark:bg-Navy950 h-[100vh]">
         <Header onToggleTheme={handleToggleTheme} isDark={isDark} />
-        <OpeningPage />
+        <OpeningPage isDark={isDark} />
       </div>
     </div>
   );
