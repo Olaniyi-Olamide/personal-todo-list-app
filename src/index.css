@@ -25,6 +25,9 @@
   /* Font */
 
   --font-JosefinSans: "Josefin Sans", sans-serif;
+
+  /* Image */
+  --bg-darkBg: url("./assets/images/bg-mobile-dark.jpg");
 }
 
 body {
