@@ -27,7 +27,9 @@
   --font-JosefinSans: "Josefin Sans", sans-serif;
 
   /* Image */
-  --bg-darkBg: url("./assets/images/bg-mobile-dark.jpg");
+  --bg-darkBgMobile: url("./assets/images/bg-mobile-dark.jpg");
+
+  --bg-darkBgDesktop: url("./assets/images/bg-desktop-dark.jpg");
 }
 
 body {
