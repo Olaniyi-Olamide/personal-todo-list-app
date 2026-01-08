@@ -1,15 +1,32 @@
 //import bgMobileDark from "../assets/images/bg-mobile-dark.jpg";
 import sunIcon from "../assets/images/icon-sun.svg";
+import moonIcon from "../assets/images/icon-moon.svg";
 
-export default function Header() {
+interface Props {
+  onToggleTheme: () => void;
+  isDark: boolean;
+}
+
+export default function Header({ onToggleTheme, isDark }: Props) {
   return (
     <header
-      className={`bg-[image:var(--bg-darkBgMobile)] md:bg-[image:var(--bg-darkBgDesktop)] bg-cover bg-center px-[2rem] pt-[2rem] pb-[8rem] flex justify-between items-center`}
+      className={` ${
+        isDark
+          ? " bg-[image:var(--bg-darkBgMobile)] md:bg-[image:var(--bg-darkBgDesktop)]"
+          : " bg-[image:var(--bg-lightBgMobile)] md:bg-[image:var(--bg-lightBgDesktop)]"
+      } bg-cover bg-center px-[2rem] pt-[2rem] pb-[8rem] flex justify-between items-center`}
     >
       <h1 className="text-Gray50 tracking-[0.5rem] text-[1.6rem]">TODO</h1>
 
-      <button className="bg-transparent border-none">
-        <img src={sunIcon} alt="sunIcon" />
+      <button
+        className="bg-transparent border-none"
+        onClick={() => onToggleTheme()}
+      >
+        {isDark ? (
+          <img src={sunIcon} alt="sunIcon" />
+        ) : (
+          <img src={moonIcon} alt="moonIcon" />
+        )}
       </button>
     </header>
   );

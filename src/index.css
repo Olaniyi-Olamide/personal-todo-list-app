@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Light-Mode Themes */
 
@@ -26,12 +28,17 @@
 
   --font-JosefinSans: "Josefin Sans", sans-serif;
 
-  /* Image */
+  /* Background Image */
   --bg-darkBgMobile: url("./assets/images/bg-mobile-dark.jpg");
-
   --bg-darkBgDesktop: url("./assets/images/bg-desktop-dark.jpg");
+  --bg-lightBgMobile: url("./assets/images/bg-mobile-light.jpg");
+  --bg-lightBgDesktop: url("./assets/images/bg-desktop-light.jpg");
 }
 
 body {
   @apply font-JosefinSans;
+}
+
+button {
+  cursor: pointer;
 }
