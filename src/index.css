@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+@theme {
+  /* Light-Mode Themes */
+
+  --color-Gray50: hsl(0, 0%, 98%);
+  --color-Purple300: hsl(234, 39%, 85%);
+  --color-Gray300: hsl(233, 11%, 84%);
+  --color-Gray600: hsl(236, 9%, 61%);
+  --color-Navy850: hsl(235, 19%, 35%);
+
+  /*  Dark-Mode Themes */
+
+  --color-Navy950: hsl(235, 21%, 11%);
+  --color-Navy900: hsl(235, 24%, 19%);
+  --color-Purple100: hsl(236, 33%, 92%); /* (hover)*/
+  --color-Purple600: hsl(235, 16%, 43%);
+  --color-Purple700: hsl(233, 14%, 35%);
+  --color-Purple800: hsl(237, 14%, 26%);
+
+  /* Others */
+  --color-Blue500: hsl(220, 98%, 61%);
+  /* - Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%) */
+
+  /* Font */
+
+  --font-JosefinSans: "Josefin Sans", sans-serif;
+}
+
+body {
+  @apply font-JosefinSans;
+}
