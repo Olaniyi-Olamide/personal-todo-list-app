@@ -1,4 +1,5 @@
 import CreateTodo from "./CreateTodo";
+import Footer from "./Footer";
 import TodoList from "./TodoList";
 import Welcome from "./Welcome";
 
@@ -21,6 +22,8 @@ export default function MainPage({ name }: Props) {
       <CreateTodo />
 
       <TodoList />
+
+      <Footer />
     </div>
   );
 }
