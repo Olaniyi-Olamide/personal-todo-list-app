@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
+import Loader from "./Loader";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
   const [name, setName] = useState("");
   const [open, setOpen] = useState(true);
-
+  const [loader, setLoader] = useState(false);
   function handleToggleTheme() {
     setIsDark((dark) => !dark);
   }
@@ -15,6 +16,11 @@ export default function App() {
     if (!name) return;
 
     setOpen(false);
+
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false);
+    }, 3000);
   }
 
   return (
@@ -29,6 +35,8 @@ export default function App() {
             onContinueBtn={handleContinueBtn}
           />
         )}
+
+        {loader && <Loader />}
       </div>
     </div>
   );
