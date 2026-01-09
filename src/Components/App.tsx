@@ -2,12 +2,15 @@ import { useState } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
+import MainPage from "./MainPage";
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
   const [name, setName] = useState("");
   const [open, setOpen] = useState(true);
   const [loader, setLoader] = useState(false);
+  const [loadMain, setLoadMain] = useState(false);
+
   function handleToggleTheme() {
     setIsDark((dark) => !dark);
   }
@@ -20,7 +23,8 @@ export default function App() {
     setLoader(true);
     setTimeout(() => {
       setLoader(false);
-    }, 3000);
+      setLoadMain(true);
+    }, 2000);
   }
 
   return (
@@ -37,6 +41,8 @@ export default function App() {
         )}
 
         {loader && <Loader />}
+
+        {loadMain && <MainPage name={name} />}
       </div>
     </div>
   );
