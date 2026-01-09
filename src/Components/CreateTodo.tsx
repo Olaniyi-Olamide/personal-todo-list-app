@@ -26,7 +26,7 @@ export default function CreateTodo({ onAddTodo }) {
           placeholder="Create a new todo..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="bg-transparent border-none text-Gray600 font-semibold outline-none lg:text-[1.3rem]"
+          className="bg-transparent border-none text-Gray600 font-semibold outline-none lg:text-[1.3rem] w-[100%]"
         />
       </form>
     </div>

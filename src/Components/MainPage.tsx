@@ -13,6 +13,7 @@ export default function MainPage({
   todos,
   onAddTodo,
   onToggle,
+  onRemove,
 }: Props) {
   return (
     <div className="text-center mt-[-8rem] lg:mt-[-10rem] flex flex-col items-center justify-center">
@@ -27,9 +28,8 @@ export default function MainPage({
 
       <CreateTodo onAddTodo={onAddTodo} />
 
-      <TodoList todos={todos} onToggle={onToggle} />
-
-      <Footer />
+      <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
+      {todos.length >= 1 && <Footer />}
     </div>
   );
 }

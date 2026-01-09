@@ -32,6 +32,13 @@ function reducer(state, action) {
             : todo
         ),
       };
+
+    case "remove":
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload),
+      };
+
     default:
       return {
         ...state,
@@ -58,6 +65,9 @@ export default function App() {
 
   function toggleTodo(id) {
     dispatch({ type: "toggle", payload: id });
+  }
+  function removeTodo(id) {
+    dispatch({ type: "remove", payload: id });
   }
 
   function handleContinueBtn() {
@@ -90,10 +100,10 @@ export default function App() {
         {loadMain && (
           <MainPage
             name={name}
-            dispatch={dispatch}
             todos={state.todos}
             onAddTodo={addTodo}
             onToggle={toggleTodo}
+            onRemove={removeTodo}
           />
         )}
       </div>
