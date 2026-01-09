@@ -7,7 +7,13 @@ interface Props {
   name: string;
 }
 
-export default function MainPage({ name }: Props) {
+export default function MainPage({
+  name,
+  dispatch,
+  todos,
+  onAddTodo,
+  onToggle,
+}: Props) {
   return (
     <div className="text-center mt-[-8rem] lg:mt-[-10rem] flex flex-col items-center justify-center">
       <Welcome>
@@ -19,9 +25,9 @@ export default function MainPage({ name }: Props) {
         </p>
       </Welcome>
 
-      <CreateTodo />
+      <CreateTodo onAddTodo={onAddTodo} />
 
-      <TodoList />
+      <TodoList todos={todos} onToggle={onToggle} />
 
       <Footer />
     </div>

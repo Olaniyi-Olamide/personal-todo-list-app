@@ -1,8 +1,43 @@
-import { useState } from "react";
+import { useState, useReducer } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
 import MainPage from "./MainPage";
+
+const initialState = {
+  todos: [],
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "add":
+      return {
+        ...state,
+        todos: [
+          ...state.todos,
+          {
+            id: Date.now(),
+            text: action.payload,
+            completed: false,
+          },
+        ],
+      };
+
+    case "toggle":
+      return {
+        ...state,
+        todos: state.todos.map((todo) =>
+          todo.id === action.payload
+            ? { ...todo, completed: !todo.completed }
+            : todo
+        ),
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+}
 
 export default function App() {
   const [isDark, setIsDark] = useState(true);
@@ -11,8 +46,18 @@ export default function App() {
   const [loader, setLoader] = useState(false);
   const [loadMain, setLoadMain] = useState(false);
 
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   function handleToggleTheme() {
     setIsDark((dark) => !dark);
+  }
+
+  function addTodo(text) {
+    dispatch({ type: "add", payload: text });
+  }
+
+  function toggleTodo(id) {
+    dispatch({ type: "toggle", payload: id });
   }
 
   function handleContinueBtn() {
@@ -42,7 +87,15 @@ export default function App() {
 
         {loader && <Loader />}
 
-        {loadMain && <MainPage name={name} />}
+        {loadMain && (
+          <MainPage
+            name={name}
+            dispatch={dispatch}
+            todos={state.todos}
+            onAddTodo={addTodo}
+            onToggle={toggleTodo}
+          />
+        )}
       </div>
     </div>
   );
