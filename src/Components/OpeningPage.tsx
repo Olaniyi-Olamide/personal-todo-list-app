@@ -17,21 +17,19 @@ export default function OpeningPage({ isDark }: Props) {
             Welcome to your personal todo list app!
           </h1>
         </CardHeader>
-        <p className="font-semibold dark:text-Gray300 text-Navy950  ml-[1.8rem] md:ml-[1.5rem] lg:ml-[4rem] ">
-          Enter your name to Continue
-        </p>
-        <CardContent className="mt-[-1rem]">
-          <form className="flex flex-col justify-center items-center gap-2">
-            {/* <label
+
+        <CardContent className="mt-[-0.8rem]">
+          <form className="px-[0.5rem]">
+            <label
               htmlFor=""
               className="font-semibold dark:text-Gray300 text-Navy950"
             >
-              Enter your name to Continue
-            </label> */}
+              Enter your name to continue
+            </label>
             <input
               type="text"
               placeholder="Your Name"
-              className="border dark:border-white/40 border-black/60 dark:text-Gray300 text-Navy950 py-2 lg:py-3 rounded-lg  w-[90%] px-4"
+              className="border dark:border-white/40 border-black/60 dark:text-Gray300 text-Navy950 py-2 lg:py-3 rounded-lg  w-[100%] px-4 mt-1.5"
             />
           </form>
         </CardContent>
