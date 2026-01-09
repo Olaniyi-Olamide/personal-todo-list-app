@@ -10,11 +10,7 @@ interface Props {
 export default function Header({ onToggleTheme, isDark }: Props) {
   return (
     <header
-      className={` ${
-        isDark
-          ? " bg-[image:var(--bg-darkBgMobile)] md:bg-[image:var(--bg-darkBgDesktop)]"
-          : " bg-[image:var(--bg-lightBgMobile)] md:bg-[image:var(--bg-lightBgDesktop)]"
-      } bg-cover bg-center px-[2rem] pt-[2rem] pb-[8rem] flex justify-between items-center`}
+      className={`dark:bg-[image:var(--bg-darkBgMobile)] md:dark:bg-[image:var(--bg-darkBgDesktop)] bg-[image:var(--bg-lightBgMobile)] md:bg-[image:var(--bg-lightBgDesktop)] bg-cover bg-center px-[2rem] pt-[2rem] pb-[8rem] flex justify-between items-center`}
     >
       <h1 className="text-Gray50 tracking-[0.5rem] text-[1.6rem] lg:text-[2.2rem]">
         TODO
