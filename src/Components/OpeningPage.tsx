@@ -6,9 +6,11 @@ import {
 } from "../Components/Ui/Card";
 
 interface Props {
-  isDark: boolean;
+  name: string;
+  setName: (param: string) => void;
+  onContinueBtn: () => void;
 }
-export default function OpeningPage({ isDark }: Props) {
+export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
   return (
     <div className="mt-[-6rem] md:flex justify-center items-center px-[1.5rem]">
       <Card className="border dark:border-white/40 border-black/60 md:w-[50%]">
@@ -28,13 +30,18 @@ export default function OpeningPage({ isDark }: Props) {
             </label>
             <input
               type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Your Name"
               className="border dark:border-white/40 border-black/60 dark:text-Gray300 text-Navy950 py-2 lg:py-3 rounded-lg  w-[100%] px-4 mt-1.5"
             />
           </form>
         </CardContent>
         <CardFooter className="flex  justify-end">
-          <button className="dark:bg-Gray50 bg-Navy900 dark:text-Navy900 text-Gray50 border-none rounded-lg w-[50%] py-2 font-semibold">
+          <button
+            className="dark:bg-Gray50 bg-Navy900 dark:text-Navy900 text-Gray50 border-none rounded-lg w-[50%] py-2 font-semibold"
+            onClick={() => onContinueBtn()}
+          >
             Continue
           </button>
         </CardFooter>
