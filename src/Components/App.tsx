@@ -1,4 +1,4 @@
-import { useState, useReducer, act } from "react";
+import { useReducer } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
