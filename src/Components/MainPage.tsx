@@ -14,6 +14,7 @@ export default function MainPage({
   onAddTodo,
   onToggle,
   onRemove,
+  filter,
 }: Props) {
   return (
     <div className="text-center mt-[-8rem] lg:mt-[-10rem] flex flex-col items-center justify-center">
@@ -28,8 +29,21 @@ export default function MainPage({
 
       <CreateTodo onAddTodo={onAddTodo} />
 
-      <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
-      {todos.length >= 1 && <Footer />}
+      <TodoList
+        todos={todos}
+        onToggle={onToggle}
+        onRemove={onRemove}
+        filter={filter}
+      />
+      {todos.length >= 1 && (
+        <Footer
+          todos={todos}
+          filter={filter}
+          onChange={(filter) =>
+            dispatch({ type: "setFilter", payload: filter })
+          }
+        />
+      )}
     </div>
   );
 }

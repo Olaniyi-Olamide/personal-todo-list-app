@@ -1,9 +1,23 @@
 import checkedIcon from "../assets/images/icon-check.svg";
 import crossIcon from "../assets/images/icon-cross.svg";
-export default function TodoList({ todos, onToggle, onRemove }) {
+
+function getVisibleTodos(todos, filter) {
+  switch (filter) {
+    case "active":
+      return todos.filter((todo) => !todo.completed);
+    case "completed":
+      return todos.filter((todo) => todo.completed);
+
+    default:
+      return todos;
+  }
+}
+
+export default function TodoList({ todos, onToggle, onRemove, filter }) {
+  const visibleTodos = getVisibleTodos(todos, filter);
   return (
     <div className="dark:bg-Navy950 bg-Gray50 flex flex-col justify-center items-center w-[100%]">
-      {todos.map((todos) => (
+      {visibleTodos.map((todos) => (
         <div
           className="flex justify-between px-[1.5rem] py-4 lg:py-5.5 rounded-t-lg dark:bg-Navy900 bg-Gray50 w-[85%] lg:w-[50%] border-b-[0.8px] dark:border-Purple700 border-Gray600 shadow"
           key={todos.id}

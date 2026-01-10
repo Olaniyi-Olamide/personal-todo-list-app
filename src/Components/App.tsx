@@ -6,6 +6,7 @@ import MainPage from "./MainPage";
 
 const initialState = {
   todos: [],
+  filter: "all",
 };
 
 function reducer(state, action) {
@@ -37,6 +38,12 @@ function reducer(state, action) {
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload),
+      };
+
+    case "setFilter":
+      return {
+        ...state,
+        filter: action.payload,
       };
 
     default:
@@ -99,11 +106,13 @@ export default function App() {
 
         {loadMain && (
           <MainPage
+            dispatch={dispatch}
             name={name}
             todos={state.todos}
             onAddTodo={addTodo}
             onToggle={toggleTodo}
             onRemove={removeTodo}
+            filter={state.filter}
           />
         )}
       </div>
