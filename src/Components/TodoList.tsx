@@ -19,7 +19,7 @@ export default function TodoList({ todos, onToggle, onRemove, filter }) {
     <div className="dark:bg-Navy950 bg-Gray50 flex flex-col justify-center items-center w-[100%]">
       {visibleTodos.map((todos) => (
         <div
-          className="flex justify-between px-[1.5rem] py-4 lg:py-5.5 rounded-t-lg dark:bg-Navy900 bg-Gray50 w-[85%] lg:w-[50%] border-b-[0.8px] dark:border-Purple700 border-Gray600 shadow"
+          className={`flex justify-between px-[1.5rem] py-4 lg:py-5.5  rounded-t-lg dark:bg-Navy900 bg-Gray50 w-[85%] lg:w-[50%] border-b-[0.8px] dark:border-Purple700 border-Gray600 shadow`}
           key={todos.id}
         >
           <div className="flex gap-3">

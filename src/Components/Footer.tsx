@@ -1,5 +1,7 @@
-export default function Footer({ todos, filter, onChange }) {
+export default function Footer({ todos, filter, onChange, onClearCompleted }) {
   const itemsLeft = todos.filter((todo) => !todo.completed);
+
+  const todosId = todos.filter((todo) => todo.completed).map((todo) => todo.id);
 
   return (
     <div className="dark:bg-Navy950 bg-Gray50 pb-[2rem] w-[100%] flex justify-center">
@@ -8,9 +10,9 @@ export default function Footer({ todos, filter, onChange }) {
           {itemsLeft.length} items left
         </p>
 
-        <div className="flex justify-between items-center lg:gap-2 gap-1  text-[0.8rem]">
+        <div className="flex justify-between items-center lg:gap-2 gap-1  text-[0.8rem] lg:text-[1rem]">
           <button
-            className={`bg-transparent border-none font-semibold hover:dark:text-Gray50 hover:text-Navy900 ${
+            className={`bg-transparent border-none font-semibold lg:hover:dark:text-Gray50 lg:hover:text-Navy900 ${
               filter === "all" ? "text-Blue500" : "text-Navy850"
             }`}
             onClick={() => onChange("all")}
@@ -18,7 +20,7 @@ export default function Footer({ todos, filter, onChange }) {
             All
           </button>
           <button
-            className={`bg-transparent border-none font-semibold hover:dark:text-Gray50 hover:text-Navy900 ${
+            className={`bg-transparent border-none font-semibold lg:hover:dark:text-Gray50 lg:hover:text-Navy900 ${
               filter === "active" ? "text-Blue500" : "text-Navy850"
             }`}
             onClick={() => onChange("active")}
@@ -26,7 +28,7 @@ export default function Footer({ todos, filter, onChange }) {
             Active
           </button>
           <button
-            className={`bg-transparent border-none font-semibold hover:dark:text-Gray50 hover:text-Navy900 ${
+            className={`bg-transparent border-none font-semibold lg:hover:dark:text-Gray50 lg:hover:text-Navy900 ${
               filter === "completed" ? "text-Blue500" : "text-Navy850"
             }`}
             onClick={() => onChange("completed")}
@@ -35,7 +37,10 @@ export default function Footer({ todos, filter, onChange }) {
           </button>
         </div>
 
-        <button className="bg-transparent border-none text-Navy850 font-semibold hover:dark:text-Gray50 hover:text-Navy900 text-[0.8rem]">
+        <button
+          className="bg-transparent border-none text-Navy850 font-semibold lg:hover:dark:text-Gray50 lg:hover:text-Navy900 text-[0.8rem] lg:text-[1rem]"
+          onClick={() => onClearCompleted(todosId)}
+        >
           Clear Completed
         </button>
       </div>

@@ -15,6 +15,7 @@ export default function MainPage({
   onToggle,
   onRemove,
   filter,
+  onClearCompleted,
 }: Props) {
   return (
     <div className="text-center mt-[-8rem] lg:mt-[-10rem] flex flex-col items-center justify-center">
@@ -42,6 +43,7 @@ export default function MainPage({
           onChange={(filter) =>
             dispatch({ type: "setFilter", payload: filter })
           }
+          onClearCompleted={onClearCompleted}
         />
       )}
     </div>

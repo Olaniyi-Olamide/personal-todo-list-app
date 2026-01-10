@@ -40,6 +40,14 @@ function reducer(state, action) {
         todos: state.todos.filter((todo) => todo.id !== action.payload),
       };
 
+    case "clearCompleted":
+      return {
+        ...state,
+        todos: state.todos.filter((todo) =>
+          todo.id !== action.payload ? !todo.completed : todo
+        ),
+      };
+
     case "setFilter":
       return {
         ...state,
@@ -75,6 +83,9 @@ export default function App() {
   }
   function removeTodo(id) {
     dispatch({ type: "remove", payload: id });
+  }
+  function clearCompletedTodo(id) {
+    dispatch({ type: "clearCompleted", payload: id });
   }
 
   function handleContinueBtn() {
@@ -113,6 +124,7 @@ export default function App() {
             onToggle={toggleTodo}
             onRemove={removeTodo}
             filter={state.filter}
+            onClearCompleted={clearCompletedTodo}
           />
         )}
       </div>
