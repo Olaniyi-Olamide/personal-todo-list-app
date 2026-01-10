@@ -3,8 +3,9 @@ import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
 import MainPage from "./MainPage";
+import type { InitialStateTypes } from "../interfaces";
 
-const initialState = {
+const initialState: InitialStateTypes = {
   todos: [],
   filter: "all",
   darkTheme: true,
