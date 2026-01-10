@@ -21,7 +21,7 @@ export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
         </CardHeader>
 
         <CardContent className="mt-[-0.8rem]">
-          <form className="px-[0.5rem]">
+          <form className="px-[0.5rem]" onSubmit={onContinueBtn}>
             <label
               htmlFor=""
               className="font-semibold dark:text-Gray300 text-Navy950"

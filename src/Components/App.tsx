@@ -88,8 +88,10 @@ export default function App() {
     dispatch({ type: "clearCompleted", payload: id });
   }
 
-  function handleContinueBtn() {
+  function handleContinueBtn(e) {
     if (!name) return;
+
+    e.preventDefault();
 
     setOpen(false);
 
