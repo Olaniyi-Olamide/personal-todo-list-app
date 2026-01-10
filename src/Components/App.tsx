@@ -89,9 +89,8 @@ export default function App() {
   }
 
   function handleContinueBtn(e) {
-    if (!name) return;
-
     e.preventDefault();
+    if (!name) return;
 
     setOpen(false);
 

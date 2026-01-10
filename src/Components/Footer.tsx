@@ -5,8 +5,8 @@ export default function Footer({ todos, filter, onChange, onClearCompleted }) {
 
   return (
     <div className="dark:bg-Navy950 bg-Gray50 pb-[2rem] w-[100%] flex justify-center">
-      <div className="flex justify-between px-[1rem] py-3 lg:py-5.5 rounded-b-lg dark:bg-Navy900 bg-Gray50 shadow-2xl w-[85%] lg:w-[50%]">
-        <p className=" text-Navy850 font-semibold">
+      <div className="flex justify-between px-[0.3rem] lg:px-[1rem] py-3 lg:py-5.5 rounded-b-lg dark:bg-Navy900 bg-Gray50 shadow-2xl w-[85%] lg:w-[50%]">
+        <p className=" text-Navy850 font-semibold text-[0.8rem] lg:text-[1rem]">
           {itemsLeft.length} items left
         </p>
 

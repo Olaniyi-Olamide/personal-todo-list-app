@@ -8,7 +8,7 @@ import {
 interface Props {
   name: string;
   setName: (param: string) => void;
-  onContinueBtn: () => void;
+  onContinueBtn: (e) => void;
 }
 export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
   return (
@@ -40,7 +40,7 @@ export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
         <CardFooter className="flex  justify-end">
           <button
             className="dark:bg-Gray50 bg-Navy900 dark:text-Navy900 text-Gray50 border-none rounded-lg w-[50%] py-2 font-semibold"
-            onClick={() => onContinueBtn()}
+            onClick={(e) => onContinueBtn(e)}
           >
             Continue
           </button>
