@@ -7,10 +7,9 @@ import {
 
 interface Props {
   name: string;
-  setName: (param: string) => void;
   onContinueBtn: (e) => void;
 }
-export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
+export default function OpeningPage({ name, onContinueBtn, dispatch }: Props) {
   return (
     <div className="mt-[-6rem] md:flex justify-center items-center px-[1.5rem]">
       <Card className="border dark:border-white/40 border-black/60 md:w-[50%]">
@@ -31,7 +30,9 @@ export default function OpeningPage({ name, setName, onContinueBtn }: Props) {
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                dispatch({ type: "enteringName", payload: e.target.value })
+              }
               placeholder="Your Name"
               className="border dark:border-white/40 border-black/60 dark:text-Gray300 text-Navy950 py-2 lg:py-3 rounded-lg  w-[100%] px-4 mt-1.5"
             />

@@ -1,4 +1,4 @@
-import { useState, useReducer } from "react";
+import { useState, useReducer, act } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
@@ -7,10 +7,44 @@ import MainPage from "./MainPage";
 const initialState = {
   todos: [],
   filter: "all",
+  darkTheme: true,
+  name: "",
+  open: true,
+  loader: false,
+  loadMain: false,
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case "enteringName":
+      return {
+        ...state,
+        name: action.payload,
+      };
+
+    case "setOpen":
+      return {
+        ...state,
+        open: !state.open,
+      };
+
+    case "loading":
+      return {
+        ...state,
+        loader: action.payload,
+      };
+
+    case "loadingMain":
+      return {
+        ...state,
+        loadMain: action.payload,
+      };
+
+    case "toggleTheme":
+      return {
+        ...state,
+        darkTheme: !state.darkTheme,
+      };
     case "add":
       return {
         ...state,
@@ -62,16 +96,10 @@ function reducer(state, action) {
 }
 
 export default function App() {
-  const [isDark, setIsDark] = useState(true);
-  const [name, setName] = useState("");
-  const [open, setOpen] = useState(true);
-  const [loader, setLoader] = useState(false);
-  const [loadMain, setLoadMain] = useState(false);
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   function handleToggleTheme() {
-    setIsDark((dark) => !dark);
+    dispatch({ type: "toggleTheme", payload: "" });
   }
 
   function addTodo(text) {
@@ -90,36 +118,36 @@ export default function App() {
 
   function handleContinueBtn(e) {
     e.preventDefault();
-    if (!name) return;
+    if (!state.name) return;
 
-    setOpen(false);
+    dispatch({ type: "setOpen", payload: "" });
 
-    setLoader(true);
+    dispatch({ type: "loading", payload: true });
     setTimeout(() => {
-      setLoader(false);
-      setLoadMain(true);
+      dispatch({ type: "loading", payload: false });
+      dispatch({ type: "loadingMain", payload: true });
     }, 1500);
   }
 
   return (
-    <div className={`${isDark && "dark"}`}>
+    <div className={`${state.darkTheme && "dark"}`}>
       <div className="bg-Gray50 dark:bg-Navy950 h-[100vh]">
-        <Header onToggleTheme={handleToggleTheme} isDark={isDark} />
+        <Header onToggleTheme={handleToggleTheme} isDark={state.darkTheme} />
 
-        {open && (
+        {state.open && (
           <OpeningPage
-            name={name}
-            setName={setName}
+            name={state.name}
+            dispatch={dispatch}
             onContinueBtn={handleContinueBtn}
           />
         )}
 
-        {loader && <Loader />}
+        {state.loader && <Loader />}
 
-        {loadMain && (
+        {state.loadMain && (
           <MainPage
             dispatch={dispatch}
-            name={name}
+            name={state.name}
             todos={state.todos}
             onAddTodo={addTodo}
             onToggle={toggleTodo}
