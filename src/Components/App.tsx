@@ -98,7 +98,7 @@ export default function App() {
     setTimeout(() => {
       setLoader(false);
       setLoadMain(true);
-    }, 2000);
+    }, 1500);
   }
 
   return (

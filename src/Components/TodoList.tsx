@@ -28,7 +28,7 @@ export default function TodoList({ todos, onToggle, onRemove, filter }) {
               onClick={() => onToggle(todos.id)}
             >
               {!todos.completed && (
-                <div className="rounded-full border-[1px] border-Navy850 px-2.5 py-2.5  bg-transparent"></div>
+                <div className="rounded-full border-[1px]  hover:border-Blue500  border-Navy850 px-2.5 py-2.5  bg-transparent"></div>
               )}
 
               {todos.completed && (
