@@ -1,4 +1,18 @@
-export default function Footer({ todos, filter, onChange, onClearCompleted }) {
+import type { Todo } from "../interfaces";
+
+interface Props {
+  todos: Todo[];
+  filter: string;
+  onChange: (param: string) => void;
+  onClearCompleted: (param: number[] | number) => void;
+}
+
+export default function Footer({
+  todos,
+  filter,
+  onChange,
+  onClearCompleted,
+}: Props) {
   const itemsLeft = todos.filter((todo) => !todo.completed);
 
   const todosId = todos.filter((todo) => todo.completed).map((todo) => todo.id);

@@ -113,11 +113,13 @@ export default function App() {
   function removeTodo(id: number) {
     dispatch({ type: "remove", payload: id });
   }
-  function clearCompletedTodo(id: number) {
+  function clearCompletedTodo(id: number | number[]) {
     dispatch({ type: "clearCompleted", payload: id });
   }
 
-  function handleContinueBtn(e: React.ChangeEvent<HTMLInputElement>) {
+  function handleContinueBtn(
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ) {
     e.preventDefault();
     if (!state.name) return;
 

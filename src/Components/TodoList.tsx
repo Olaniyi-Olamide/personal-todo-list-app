@@ -1,7 +1,16 @@
 import checkedIcon from "../assets/images/icon-check.svg";
 import crossIcon from "../assets/images/icon-cross.svg";
 
-function getVisibleTodos(todos, filter) {
+import type { Todo } from "../interfaces";
+
+interface Props {
+  todos: Todo[];
+  onToggle: (param: number) => void;
+  onRemove: (param: number) => void;
+  filter: string;
+}
+
+function getVisibleTodos(todos: Todo[], filter: string) {
   switch (filter) {
     case "active":
       return todos.filter((todo) => !todo.completed);
@@ -13,7 +22,7 @@ function getVisibleTodos(todos, filter) {
   }
 }
 
-export default function TodoList({ todos, onToggle, onRemove, filter }) {
+export default function TodoList({ todos, onToggle, onRemove, filter }: Props) {
   const visibleTodos = getVisibleTodos(todos, filter);
   return (
     <div className="dark:bg-Navy950 bg-Gray50 flex flex-col justify-center items-center w-[100%]">

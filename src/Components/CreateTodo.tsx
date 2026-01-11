@@ -1,9 +1,13 @@
 import { useState } from "react";
 
-export default function CreateTodo({ onAddTodo }) {
+interface Props {
+  onAddTodo: (param: string) => void;
+}
+
+export default function CreateTodo({ onAddTodo }: Props) {
   const [value, setValue] = useState("");
 
-  function handleSubmit(e) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!value.trim()) return;
 

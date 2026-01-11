@@ -1,4 +1,4 @@
-interface Todo {
+export interface Todo {
   id: number;
   text: string;
   completed: boolean;
@@ -23,6 +23,6 @@ export type Action =
   | { type: "toggle"; payload: number }
   | { type: "toggleTheme" }
   | { type: "remove"; payload: number }
-  | { type: "clearCompleted"; payload: number }
+  | { type: "clearCompleted"; payload: number | number[] }
   | { type: "remove"; payload: number }
   | { type: "setFilter"; payload: string };

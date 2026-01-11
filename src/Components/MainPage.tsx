@@ -3,8 +3,17 @@ import Footer from "./Footer";
 import TodoList from "./TodoList";
 import Welcome from "./Welcome";
 
+import type { Todo } from "../interfaces";
+
 interface Props {
   name: string;
+  dispatch: (param: { type: "setFilter"; payload: string }) => void;
+  todos: Todo[];
+  onAddTodo: (param: string) => void;
+  onToggle: (param: number) => void;
+  onRemove: (param: number) => void;
+  filter: string;
+  onClearCompleted: (param: number | number[]) => void;
 }
 
 export default function MainPage({
@@ -40,7 +49,7 @@ export default function MainPage({
         <Footer
           todos={todos}
           filter={filter}
-          onChange={(filter) =>
+          onChange={(filter: string) =>
             dispatch({ type: "setFilter", payload: filter })
           }
           onClearCompleted={onClearCompleted}
