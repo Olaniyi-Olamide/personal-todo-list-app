@@ -3,9 +3,9 @@ import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
 import MainPage from "./MainPage";
-import type { InitialStateTypes } from "../interfaces";
+import type { State, Action } from "../interfaces";
 
-const initialState: InitialStateTypes = {
+const initialState = {
   todos: [],
   filter: "all",
   darkTheme: true,
@@ -15,7 +15,7 @@ const initialState: InitialStateTypes = {
   loadMain: false,
 };
 
-function reducer(state, action) {
+function reducer(state: State, action: Action) {
   switch (action.type) {
     case "enteringName":
       return {
@@ -100,28 +100,28 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   function handleToggleTheme() {
-    dispatch({ type: "toggleTheme", payload: "" });
+    dispatch({ type: "toggleTheme" });
   }
 
-  function addTodo(text) {
+  function addTodo(text: string) {
     dispatch({ type: "add", payload: text });
   }
 
-  function toggleTodo(id) {
+  function toggleTodo(id: number) {
     dispatch({ type: "toggle", payload: id });
   }
-  function removeTodo(id) {
+  function removeTodo(id: number) {
     dispatch({ type: "remove", payload: id });
   }
-  function clearCompletedTodo(id) {
+  function clearCompletedTodo(id: number) {
     dispatch({ type: "clearCompleted", payload: id });
   }
 
-  function handleContinueBtn(e) {
+  function handleContinueBtn(e: React.ChangeEvent<HTMLInputElement>) {
     e.preventDefault();
     if (!state.name) return;
 
-    dispatch({ type: "setOpen", payload: "" });
+    dispatch({ type: "setOpen" });
 
     dispatch({ type: "loading", payload: true });
     setTimeout(() => {

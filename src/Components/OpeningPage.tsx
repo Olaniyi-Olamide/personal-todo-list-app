@@ -7,7 +7,10 @@ import {
 
 interface Props {
   name: string;
-  onContinueBtn: (e) => void;
+  onContinueBtn: (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  dispatch: (param: { type: "enteringName"; payload: string }) => void;
 }
 export default function OpeningPage({ name, onContinueBtn, dispatch }: Props) {
   return (
