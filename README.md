@@ -1,73 +1,72 @@
-# React + TypeScript + Vite
+# Frontend Mentor - Todo app solution
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-Currently, two official plugins are available:
+## Table of contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+ - [Author](#author)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### The challenge
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Users should be able to:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- **Bonus**: Enter their name before adding a Todo
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Links
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Live Site URL: (https://personaltodolistapp.netlify.app/)
+- Repo URL: (https://github.com/Olaniyi-Olamide/personal-todo-list-app.git)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## My process
+
+### Built with
+
+- Semantic HTML5 markup
+- Tailwind CSS
+- Flexbox
+- Typescript 
+- Mobile-first workflow
+- [React](https://reactjs.org/) - JS library
+- [Motion](https://motion.dev/) - Animations library 
+
+
+### What I learned
+
+- Practiced using Typescript 
+I learned how to work with typescript for type safety while I was working on this project.
+- Practiced using the useReducer hook. 
+I learned how to use the useReducer hook for managing multiple states, instead of using multiple useState hooks.
+- Explored an animation library (Motion)
+I used the motion library to add little animations to my project. 
+- Explored Shadcn 
+I learnt about shadcn and what it's difficult UIs while I was building this project. I also used the card component to build the opening page of the app.
+- And others
+I practiced storing data in local storage while working on this project. I also reinforced my knowledge on adding, removing and filtering data from an object while I was creating this Todo list app. 
+
+
+## Author
+
+- Website - [Olaniyi Olamide](https://personaltodolistapp.netlify.app/)
+- Frontend Mentor - [@Olaniyi-Olamide](https://www.frontendmentor.io/profile/Olaniyi-Olamide)
+- X - [@notbadthoo](https://www.x.com/notbadthoo)
+
+
