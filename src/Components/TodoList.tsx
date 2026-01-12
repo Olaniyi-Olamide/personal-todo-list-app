@@ -1,6 +1,6 @@
 import checkedIcon from "../assets/images/icon-check.svg";
 import crossIcon from "../assets/images/icon-cross.svg";
-
+import { motion } from "motion/react";
 import type { Todo } from "../interfaces";
 
 interface Props {
@@ -27,7 +27,12 @@ export default function TodoList({ todos, onToggle, onRemove, filter }: Props) {
   return (
     <div className="dark:bg-Navy950 bg-Gray50 flex flex-col justify-center items-center w-[100%]">
       {visibleTodos.map((todos) => (
-        <div
+        <motion.div
+          initial={{ x: -35 }}
+          animate={{ x: 0 }}
+          transition={{
+            duration: 1,
+          }}
           className={`flex justify-between px-[1.5rem] py-4 lg:py-5.5  dark:bg-Navy900 bg-Gray50 w-[85%] lg:w-[50%] border-b-[0.8px] dark:border-Purple700 border-Gray600 shadow`}
           key={todos.id}
         >
@@ -64,7 +69,7 @@ export default function TodoList({ todos, onToggle, onRemove, filter }: Props) {
           >
             <img src={crossIcon} alt={crossIcon} />
           </button>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

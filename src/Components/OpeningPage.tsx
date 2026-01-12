@@ -5,6 +5,8 @@ import {
   CardContent,
 } from "../Components/Ui/Card";
 
+import { motion } from "motion/react";
+
 interface Props {
   name: string;
   onContinueBtn: (
@@ -17,9 +19,17 @@ export default function OpeningPage({ name, onContinueBtn, dispatch }: Props) {
     <div className="mt-[-6rem] md:flex justify-center items-center px-[1.5rem]">
       <Card className="border dark:border-white/40 border-black/60 md:w-[50%]">
         <CardHeader>
-          <h1 className="dark:text-Gray300 text-Navy950 font-bold text-[1.2rem]  text-center md:text-[2rem] ">
+          <motion.h1
+            animate={{ y: [0, -20, 0] }}
+            transition={{
+              duration: 1.1,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="dark:text-Gray300 text-Navy950 font-bold text-[1.2rem]  text-center md:text-[2rem] "
+          >
             Welcome to your personal todo list app!
-          </h1>
+          </motion.h1>
         </CardHeader>
 
         <CardContent className="mt-[-0.8rem]">
@@ -42,12 +52,18 @@ export default function OpeningPage({ name, onContinueBtn, dispatch }: Props) {
           </form>
         </CardContent>
         <CardFooter className="flex  justify-end">
-          <button
-            className="dark:bg-Gray50 bg-Navy900 dark:text-Navy900 text-Gray50 border-none rounded-lg w-[50%] py-2 font-semibold"
+          <motion.button
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.9, y: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 300,
+            }}
+            className="dark:bg-Gray50 bg-Navy900 dark:text-Navy900 text-Gray50 rounded-lg w-[50%] py-2 font-semibold lg:hover:bg-transparent dark:lg:hover:border-Gray50 dark:lg:hover:text-Gray50 lg:hover:border-Navy900 lg:hover:text-Navy900 lg:hover:border-[1px]"
             onClick={(e) => onContinueBtn(e)}
           >
             Continue
-          </button>
+          </motion.button>
         </CardFooter>
       </Card>
     </div>

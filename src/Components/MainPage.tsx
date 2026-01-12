@@ -3,6 +3,8 @@ import Footer from "./Footer";
 import TodoList from "./TodoList";
 import Welcome from "./Welcome";
 
+import { motion } from "motion/react";
+
 import type { Todo } from "../interfaces";
 
 interface Props {
@@ -29,12 +31,22 @@ export default function MainPage({
   return (
     <div className="text-center mt-[-8rem] lg:mt-[-10rem] flex flex-col items-center justify-center">
       <Welcome>
-        <h2 className="text-Gray50 text-[1.8rem] lg:text-[2.3rem]">
+        <motion.h2
+          initial={{ opacity: 0, y: 5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-Gray50 text-[1.8rem] lg:text-[2.3rem]"
+        >
           Hello, {name}
-        </h2>
-        <p className="text-Gray50 text-[1rem] lg:text-[1.2rem] font-semibold">
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, x: 15 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-Gray50 text-[1rem] lg:text-[1.2rem] font-semibold"
+        >
           What's on your todo list today?
-        </p>
+        </motion.p>
       </Welcome>
 
       <CreateTodo onAddTodo={onAddTodo} />
