@@ -20,10 +20,16 @@ function loadTodos() {
   return storedTodos ? JSON.parse(storedTodos) : [];
 }
 
+function loadName() {
+  const storedName = localStorage.getItem("name");
+  return storedName ? JSON.parse(storedName) : [];
+}
+
 function init(state: State) {
   return {
     ...state,
     todos: loadTodos(),
+    name: loadName(),
   };
 }
 
@@ -113,7 +119,8 @@ export default function App() {
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(state.todos));
-  }, [state.todos]);
+    localStorage.setItem("name", JSON.stringify(state.name));
+  }, [state.todos, state.name]);
 
   function handleToggleTheme() {
     dispatch({ type: "toggleTheme" });
