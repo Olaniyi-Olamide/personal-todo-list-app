@@ -65,7 +65,7 @@ I practiced storing data in local storage while working on this project. I also 
 
 ## Author
 
-- Website - [Olaniyi Olamide](https://personaltodolistapp.netlify.app/)
+- Website - [Personal Todo List App](https://personaltodolistapp.netlify.app/)
 - Frontend Mentor - [@Olaniyi-Olamide](https://www.frontendmentor.io/profile/Olaniyi-Olamide)
 - X - [@notbadthoo](https://www.x.com/notbadthoo)
 
