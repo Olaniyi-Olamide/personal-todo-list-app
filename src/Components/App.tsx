@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import Header from "./Header";
 import OpeningPage from "./OpeningPage";
 import Loader from "./Loader";
@@ -14,6 +14,18 @@ const initialState = {
   loader: false,
   loadMain: false,
 };
+
+function loadTodos() {
+  const storedTodos = localStorage.getItem("todos");
+  return storedTodos ? JSON.parse(storedTodos) : [];
+}
+
+function init(state: State) {
+  return {
+    ...state,
+    todos: loadTodos(),
+  };
+}
 
 function reducer(state: State, action: Action) {
   switch (action.type) {
@@ -97,7 +109,11 @@ function reducer(state: State, action: Action) {
 }
 
 export default function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState, init);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(state.todos));
+  }, [state.todos]);
 
   function handleToggleTheme() {
     dispatch({ type: "toggleTheme" });
